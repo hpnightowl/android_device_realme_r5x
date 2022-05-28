@@ -121,9 +121,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 TARGET_USES_VULKAN := true
 
-# DRM
-TARGET_ENABLE_MEDIADRM_64 := true
-
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
