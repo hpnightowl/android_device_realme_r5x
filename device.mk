@@ -549,7 +549,3 @@ PRODUCT_PACKAGES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/realme/r5x/r5x-vendor.mk)
-
-# Remove Unwanted Packages
-PRODUCT_PACKAGES += \
-    RemovePackages
