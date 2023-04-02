@@ -5,6 +5,7 @@
 #
 
 DEVICE_PATH := device/realme/r5x
+COMMON_PATH := device/qcom/common
 
 BOARD_VENDOR := realme
 
@@ -61,8 +62,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 
-TARGET_USES_64_BIT_BINDER := true
-
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := \
@@ -76,11 +75,10 @@ BOARD_KERNEL_CMDLINE := \
     swiotlb=1 \
     earlycon=msm_geni_serial,0x4a90000 \
     loop.max_part=7 \
-    cgroup.memory=nokmem,nosocket
+    cgroup.memory=nokmem,nosocket \
+    androidboot.init_fatal_reboot_target=recovery \
+    kpti=off
 
-BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
-BOARD_KERNEL_CMDLINE += kpti=off
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_OFFSET := 0x00008000
@@ -104,10 +102,11 @@ AUDIO_FEATURE_ENABLED_AUDIOSPHERE := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 
+# Bluetooth
+TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
+
 # Camera
 TARGET_NEEDS_RAW10_BUFFER_FIX := true
-TARGET_USES_QTI_CAMERA_DEVICE := true
-USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Display
 TARGET_USES_HWC2 := true
@@ -121,16 +120,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 TARGET_USES_VULKAN := true
 
-# Enable dexpreopt to speed boot time
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
-    endif
-  endif
-endif
-
 # FM
 BOARD_HAVE_QCOM_FM := true
 BOARD_HAS_QCA_FM_SOC := cherokee
@@ -140,12 +129,10 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 LOC_HIDL_VERSION := 3.0
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifests/manifest.xml
-DEVICE_MATRIX_FILE := device/qcom/common/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
+DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
 
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(DEVICE_PATH)/configs/manifests/framework_compatibility_matrix.xml \
-    vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/configs/hidl/framework_compatibility_matrix.xml
 
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
