@@ -15,12 +15,7 @@ OVERRIDE_PRODUCT_COMPRESSED_APEX := false
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    vendor/qcom/opensource/commonsys-intf/display \
-    vendor/qcom/opensource/wfd-commonsys \
-    hardware/qcom/display \
-    hardware/qcom/media \
-    vendor/qcom/opensource/audio-hal/primary-hal
+    $(LOCAL_PATH)
 
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_props.mk
