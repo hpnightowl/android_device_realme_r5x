@@ -391,7 +391,6 @@ PRODUCT_COPY_FILES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
-    libavservices_minijail \
     libnl \
     libqdMetaData \
     libqdMetaData.system \
