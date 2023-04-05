@@ -8,11 +8,6 @@
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
-#PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
-RELAX_USES_LIBRARY_CHECK := true
-OVERRIDE_PRODUCT_COMPRESSED_APEX := false
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
@@ -81,13 +76,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.bluetooth.bqr.event_mask=14 \
     persist.bluetooth.bqr.min_interval_ms=500
-
-# Binder
-PRODUCT_PACKAGES += \
-    libhwbinder \
-    libhwbinder.vendor \
-    libhidltransport \
-    libhidltransport.vendor
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -183,11 +171,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v30.so
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0_system
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
@@ -352,9 +335,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal/thermal-engine-camera.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-camera.conf \
     $(LOCAL_PATH)/configs/thermal/thermal-engine-map.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-map.conf \
     $(LOCAL_PATH)/configs/thermal/thermal-engine-normal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-normal.conf
-
-# Speed profile services and wifi-service to reduce RAM and storage.
-PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
 # Wifi
 PRODUCT_PACKAGES += \
