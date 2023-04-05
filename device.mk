@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2022 The LineageOS Project
+# Copyright (C) 2023 Project 404
 #
 # SPDX-License-Identifier: Apache-2.0
 #
