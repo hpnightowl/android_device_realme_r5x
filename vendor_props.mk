@@ -1,83 +1,3 @@
-# Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=1 \
-    audio.deep_buffer.media=true \
-    audio.offload.min.duration.secs=30 \
-    persist.bluetooth.a2dp_offload.disabled=false \
-    persist.vendor.bt.a2dp.mac_whitelist=false \
-    persist.vendor.audio.ras.enabled=false \
-    persist.vendor.bt.aac_frm_ctl.enabled=true \
-    ro.af.client_heap_size_kbyte=7168 \
-    ro.bluetooth.a2dp_offload.supported=true \
-    ro.vendor.audio.sdk.fluencetype=none \
-    ro.vendor.audio.sdk.ssr=false \
-    vendor.audio.adm.buffering.ms=2 \
-    vendor.audio.dolby.ds2.enabled=false \
-    vendor.audio.dolby.ds2.hardbypass=false \
-    vendor.audio.flac.sw.decoder.24bit=true \
-    vendor.audio.offload.buffer.size.kb=32 \
-    vendor.audio.offload.gapless.enabled=true \
-    vendor.audio.offload.multiaac.enable=true \
-    vendor.audio.offload.multiple.enabled=false \
-    vendor.audio.offload.passthrough=false \
-    vendor.audio.offload.track.enable=true \
-    vendor.audio.parser.ip.buffer.size=262144 \
-    vendor.audio.safx.pbe.enabled=false \
-    vendor.audio.tunnel.encode=false \
-    vendor.audio.hw.aac.encoder=true \
-    vendor.audio.use.sw.alac.decoder=true \
-    vendor.audio.use.sw.ape.decoder=true \
-    vendor.audio.volume.headset.gain.depcal=true \
-    vendor.audio_hal.in_period_size=144 \
-    vendor.audio_hal.period_multiplier=3 \
-    vendor.audio_hal.period_size=240 \
-    vendor.voice.path.for.pcm.voip=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.feature.a2dp_offload.enable=true \
-    vendor.audio.feature.afe_proxy.enable=true \
-    persist.vendor.bluetooth.modem_nv_support=true \
-    vendor.audio.feature.anc_headset.enable=true \
-    vendor.audio.feature.audiozoom.enable=false \
-    vendor.audio.feature.battery_listener.enable=false \
-    vendor.audio.feature.compr_cap.enable=false \
-    vendor.audio.feature.compr_voip.enable=false \
-    vendor.audio.feature.compress_in.enable=false \
-    vendor.audio.feature.compress_meta_data.enable=true \
-    vendor.audio.feature.concurrent_capture.enable=false \
-    vendor.audio.feature.custom_stereo.enable=true \
-    vendor.audio.feature.deepbuffer_as_primary.enable=false \
-    vendor.audio.feature.display_port.enable=true \
-    vendor.audio.feature.dsm_feedback.enable=false \
-    vendor.audio.feature.dynamic_ecns.enable=false \
-    vendor.audio.feature.ext_hw_plugin.enable=false \
-    vendor.audio.feature.external_dsp.enable=false \
-    vendor.audio.feature.external_speaker.enable=false \
-    vendor.audio.feature.external_speaker_tfa.enable=false \
-    vendor.audio.feature.fluence.enable=false \
-    vendor.audio.feature.fm.enable=true \
-    vendor.audio.feature.hdmi_edid.enable=true \
-    vendor.audio.feature.hdmi_passthrough.enable=true \
-    vendor.audio.feature.hfp.enable=true \
-    vendor.audio.feature.hifi_audio.enable=false \
-    vendor.audio.feature.hwdep_cal.enable=false \
-    vendor.audio.feature.incall_music.enable=false \
-    vendor.audio.feature.keep_alive.enable=false \
-    vendor.audio.feature.kpi_optimize.enable=true \
-    vendor.audio.feature.maxx_audio.enable=false \
-    vendor.audio.feature.multi_voice_session.enable=true \
-    vendor.audio.feature.ras.enable=true \
-    vendor.audio.feature.record_play_concurency.enable=false \
-    vendor.audio.feature.snd_mon.enable=true \
-    vendor.audio.feature.spkr_prot.enable=true \
-    vendor.audio.feature.src_trkn.enable=true \
-    vendor.audio.feature.ssrec.enable=true \
-    vendor.audio.feature.usb_offload.enable=true \
-    vendor.audio.feature.usb_offload_burst_mode.enable=false \
-    vendor.audio.feature.usb_offload_sidetone_volume.enable=false \
-    vendor.audio.feature.vbat.enable=true \
-    vendor.audio.feature.wsa.enable=false
-
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.expose.aux=1 \
@@ -212,14 +132,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.delta_time.enable=true
-
-# Usb
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.vendor.usb.config.extra=none \
-    vendor.usb.dpl.inst.name=dpl \
-    vendor.usb.rmnet.func.name=rmnet_bam \
-    vendor.usb.rmnet.inst.name=rmnet \
-    vendor.usb.rndis.func.name=rndis_bam
 
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \

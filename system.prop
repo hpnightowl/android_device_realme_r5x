@@ -1,7 +1,3 @@
-# Audio
-audio.sys.noisy.broadcast.delay=600
-audio.sys.offload.pstimeout.secs=3
-
 # Camera
 camera.disable_zsl_mode=true
 persist.camera.aifb=1
