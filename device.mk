@@ -12,39 +12,16 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# Vendor properties
--include $(LOCAL_PATH)/vendor_props.mk
+# Properties
+-include $(LOCAL_PATH)/properties.mk
 
 # Audio
-PRODUCT_PRODUCT_PROPERTIES += \
-    vendor.audio.feature.compr_voip.enable=true \
-    vendor.audio.feature.spkr_prot.enable=false \
-    vendor.audio.offload.buffer.size.kb=256
-
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.config.vc_call_vol_default=5 \
-    ro.config.vc_call_vol_steps=6
-
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbluetooth_audio_session
-
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=false \
-    persist.vendor.qcom.bluetooth.enable.splita2dp=true \
-    persist.vendor.qcom.bluetooth.scram.enabled=true \
-    persist.vendor.qcom.bluetooth.soc=cherokee \
-    persist.vendor.qcom.bluetooth.twsp_state.enabled=false \
-    persist.vendor.bluetooth.modem_nv_support=true \
-    ro.vendor.bluetooth.wipower=false \
-    vendor.qcom.bluetooth.soc=cherokee
-
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.bluetooth.bqr.event_mask=14 \
-    persist.bluetooth.bqr.min_interval_ms=500
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -109,9 +86,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4-service.clearkey
 
-PRODUCT_PACKAGES += \
-    android.hardware.broadcastradio@1.0-impl
-
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.r5x
@@ -122,13 +96,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/egis.sh:install/bin/egis.sh
 
-# FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    libqcomfm_jni \
-    qcom.fmradio \
-    qcom.fmradio.xml
-
 # Freeform Windows
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.freeform_window_management.xml
@@ -137,9 +104,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
-
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v30.so
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
@@ -186,16 +150,6 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
-    android.hardware.power.stats@1.0-service.mock
-
-# Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-vendorcompat \
-    libprotobuf-cpp-lite-vendorcompat
-
 # Public Libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -210,10 +164,6 @@ PRODUCT_COPY_FILES += \
     $(TARGET_PREBUILT_KERNEL):kernel
 
 PRODUCT_VENDOR_KERNEL_HEADERS := device/realme/r5x-kernel/kernel-headers
-
-# QMI
-PRODUCT_PACKAGES += \
-    libjson
 
 # QTI
 TARGET_COMMON_QTI_COMPONENTS := \
@@ -245,7 +195,8 @@ PRODUCT_PACKAGES += \
     rild \
     librmnetctl \
     libxml2 \
-    libprotobuf-cpp-full
+    libprotobuf-cpp-full \
+    libjson
 
 PRODUCT_PACKAGES += \
     ims-ext-common \
